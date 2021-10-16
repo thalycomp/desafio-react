@@ -1,6 +1,7 @@
 import './styles.css';
 import SectionsContainer from '../SectionsContainer';
 import { useServers } from '../../hooks/useServers';
+import HeadTable from '../HeadTable';
 
 function Summary() {
   const { selectedServers } = useServers();
@@ -24,17 +25,17 @@ function Summary() {
     }
   );
 
+  const valuesHeadSummary = [
+    { title: 'Servidores selecionados', key: 0 },
+    { title: 'Total de Memória', key: 1 },
+    { title: 'Total de CPUs', key: 2 },
+    { title: 'Total de discos', key: 3 },
+  ];
+
   return (
     <SectionsContainer title="Sumário dos recursos dos servidores">
       <table className="summary-table">
-        <thead className="summary-table-thead">
-          <tr className="summary-table-tr">
-            <th>Servidores Selecionados</th>
-            <th>Total de Memória</th>
-            <th>Total de CPUs</th>
-            <th>Total de Discos</th>
-          </tr>
-        </thead>
+        <HeadTable type="vertical" valuesHead={valuesHeadSummary} />
         <tbody>
           <tr className="summary-table-tr">
             <td>{selectedServers.length} servidores selecionados</td>
