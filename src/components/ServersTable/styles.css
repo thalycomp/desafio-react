@@ -1,0 +1,33 @@
+.servers-table {
+  border-radius: 9px;
+  width: 98%;
+  margin: 1rem auto;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-spacing: 0;
+
+  text-align: center;
+}
+
+.servers-table-tr th,
+.servers-table-tr td {
+  padding: 0.6rem;
+  border: 1px solid #e1e1e1;
+  margin: 0;
+}
+
+.servers-table-tr th {
+  background-color: #e5e5e5;
+
+  font-weight: normal;
+}
+
+.servers-table-tr:first-child {
+  border-radius: 0px 0px 0px 9px;
+}
+
+.servers-table-tr:last-child {
+  border-radius: 0px 0px 9px 0px;
+}

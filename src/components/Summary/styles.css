@@ -1,4 +1,4 @@
-.section-summary {
+.section-tables {
   width: 100%;
   margin-top: 2rem;
 
@@ -12,7 +12,7 @@
   border-radius: 9px;
 }
 
-.summary-title-container {
+.title-container {
   background-color: #e5e5e5;
   width: 98%;
   border-radius: 9px 9px 0px 0px;

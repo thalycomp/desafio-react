@@ -2,8 +2,8 @@ import './styles.css';
 
 function Summary() {
   return (
-    <section className="section-summary">
-      <div className="summary-title-container">
+    <section className="section-tables">
+      <div className="title-container">
         <h4>Sumário dos recursos dos servidores</h4>
       </div>
       <table className="summary-table">
