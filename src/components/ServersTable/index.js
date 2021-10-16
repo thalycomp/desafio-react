@@ -9,6 +9,7 @@ function ServersTable() {
   const handleCheckedValue = (server) => {
     addSelectedServers(server);
   };
+
   const valuesHeadServers = [
     { title: 'Select', key: 0 },
     { title: 'Hostname', key: 1 },
@@ -17,19 +18,10 @@ function ServersTable() {
     { title: 'Disco', key: 4 },
     { title: 'IP', key: 5 },
   ];
+
   return (
     <SectionsContainer title="Tabela de servidores">
       <table className="servers-table">
-        <thead className="servers-table-thead">
-          <tr className="servers-table-tr">
-            <th>Select</th>
-            <th>Hostname</th>
-            <th>Memória</th>
-            <th>vCPUs</th>
-            <th>Disco</th>
-            <th>IP</th>
-          </tr>
-        </thead>
         <HeadTable type="horizontal" valuesHead={valuesHeadServers} />
         <tbody>
           {servers.map((server) => (
