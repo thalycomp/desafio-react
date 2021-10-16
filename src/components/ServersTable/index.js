@@ -1,11 +1,9 @@
 import './styles.css';
+import SectionsContainer from '../SectionsContainer';
 
 function ServersTable() {
   return (
-    <section className="section-tables">
-      <div className="title-container">
-        <h4>Tabela de servidores</h4>
-      </div>
+    <SectionsContainer title="Tabela de servidores">
       <table className="servers-table">
         <thead className="servers-table-thead">
           <tr className="servers-table-tr">
@@ -80,7 +78,7 @@ function ServersTable() {
           </tr>
         </tbody>
       </table>
-    </section>
+    </SectionsContainer>
   );
 }
 
