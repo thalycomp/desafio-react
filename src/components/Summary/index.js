@@ -1,7 +1,10 @@
 import './styles.css';
 import SectionsContainer from '../SectionsContainer';
+import { useServers } from '../../hooks/useServers';
 
 function Summary() {
+  const { selectedServers } = useServers();
+
   return (
     <SectionsContainer title="Sumário dos recursos dos servidores">
       <table className="summary-table">
@@ -15,7 +18,7 @@ function Summary() {
         </thead>
         <tbody>
           <tr className="summary-table-tr">
-            <td>4 servidores selecionados</td>
+            <td>{selectedServers.length} servidores selecionados</td>
             <td>354 GB</td>
             <td>75 vCPUs</td>
             <td>3096 GB</td>

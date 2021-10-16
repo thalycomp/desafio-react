@@ -5,18 +5,29 @@ const ServerContext = createContext({});
 
 export function ServerProvider({ children }) {
   const [servers, setServers] = useState([]);
+  const [selectedServers, setSelectedServers] = useState([]);
 
   useEffect(() => {
     api.get('/servers').then((response) => setServers(response.data));
-    console.log(servers);
   }, []);
 
-  function getServers() {
-    console.log(servers);
+  function addSelectedServers(server) {
+    const serverExists = selectedServers.filter(
+      (s) => s.id_vm !== server.id_vm
+    );
+
+    if (serverExists.length < selectedServers.length) {
+      setSelectedServers(serverExists);
+      return;
+    }
+
+    setSelectedServers([...selectedServers, server]);
   }
 
   return (
-    <ServerContext.Provider value={{ servers, getServers }}>
+    <ServerContext.Provider
+      value={{ addSelectedServers, servers, selectedServers }}
+    >
       {children}
     </ServerContext.Provider>
   );

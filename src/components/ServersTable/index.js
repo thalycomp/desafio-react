@@ -3,7 +3,11 @@ import SectionsContainer from '../SectionsContainer';
 import { useServers } from '../../hooks/useServers';
 
 function ServersTable() {
-  const { servers } = useServers();
+  const { servers, addSelectedServers } = useServers();
+
+  const handleCheckedValue = (server) => {
+    addSelectedServers(server);
+  };
 
   return (
     <SectionsContainer title="Tabela de servidores">
@@ -23,7 +27,11 @@ function ServersTable() {
             <tr key={server.id_vm} className="servers-table-tr">
               <td>
                 <label className="container">
-                  <input type="checkbox" value={server.id_vm} />
+                  <input
+                    type="checkbox"
+                    onClick={() => handleCheckedValue(server)}
+                    value={server.id_vm}
+                  />
                 </label>
               </td>
               <td>{server.hostname}</td>
