@@ -1,6 +1,7 @@
 import './styles.css';
 import SectionsContainer from '../SectionsContainer';
 import { useServers } from '../../hooks/useServers';
+import HeadTable from '../HeadTable';
 
 function ServersTable() {
   const { servers, addSelectedServers } = useServers();
@@ -8,7 +9,14 @@ function ServersTable() {
   const handleCheckedValue = (server) => {
     addSelectedServers(server);
   };
-
+  const valuesHeadServers = [
+    { title: 'Select', key: 0 },
+    { title: 'Hostname', key: 1 },
+    { title: 'Memória', key: 2 },
+    { title: 'vCPUs', key: 3 },
+    { title: 'Disco', key: 4 },
+    { title: 'IP', key: 5 },
+  ];
   return (
     <SectionsContainer title="Tabela de servidores">
       <table className="servers-table">
@@ -22,6 +30,7 @@ function ServersTable() {
             <th>IP</th>
           </tr>
         </thead>
+        <HeadTable type="horizontal" valuesHead={valuesHeadServers} />
         <tbody>
           {servers.map((server) => (
             <tr key={server.id_vm} className="servers-table-tr">

@@ -1,0 +1,40 @@
+.general-table th,
+.general-table td {
+  padding: 0.6rem;
+  border: 1px solid #dddddd;
+}
+
+.general-table th {
+  background-color: #e5e5e5;
+
+  font-weight: normal;
+}
+
+.horizontal-table-tr:first-child {
+  border-radius: 0px 0px 0px 9px;
+}
+
+.horizontal-table-tr:last-child {
+  border-radius: 0px 0px 9px 0px;
+}
+
+.vertical-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-table-tr th:first-child {
+  border-radius: 9px 0px 0px 0px;
+}
+
+.vertical-table-tr th:last-child {
+  border-radius: 0px 0px 0px 9px;
+}
+
+.vertical-table-tr td:first-child {
+  border-radius: 0px 9px 0px 0px;
+}
+
+.vertical-table-tr td:last-child {
+  border-radius: 0px 0px 9px 0px;
+}
