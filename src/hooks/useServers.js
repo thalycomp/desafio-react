@@ -1,9 +1,14 @@
-import { useContext, createContext, useState } from 'react';
+import { useContext, createContext, useState, useEffect } from 'react';
+import api from '../services/api';
 
 const ServerContext = createContext({});
 
 export function ServerProvider({ children }) {
   const [servers, setServers] = useState([]);
+
+  useEffect(() => {
+    api.get('/servers').then((response) => setServers(response.data));
+  }, []);
 
   function getServers() {
     console.log(servers);
