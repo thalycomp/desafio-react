@@ -8,6 +8,7 @@ export function ServerProvider({ children }) {
 
   useEffect(() => {
     api.get('/servers').then((response) => setServers(response.data));
+    console.log(servers);
   }, []);
 
   function getServers() {

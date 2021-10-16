@@ -1,7 +1,10 @@
 import './styles.css';
 import SectionsContainer from '../SectionsContainer';
+import { useServers } from '../../hooks/useServers';
 
 function ServersTable() {
+  const { servers } = useServers();
+
   return (
     <SectionsContainer title="Tabela de servidores">
       <table className="servers-table">
@@ -16,66 +19,20 @@ function ServersTable() {
           </tr>
         </thead>
         <tbody>
-          <tr className="servers-table-tr">
-            <td>
-              <label class="container">
-                <input type="checkbox" checked="checked" />
-              </label>
-            </td>
-            <td>354 GB</td>
-            <td>75 vCPUs</td>
-            <td>3096 GB</td>
-            <td>200 GB</td>
-            <td>10.0.01.1</td>
-          </tr>
-          <tr className="servers-table-tr">
-            <td>
-              <label class="container">
-                <input type="checkbox" checked="checked" />
-              </label>
-            </td>
-            <td>354 GB</td>
-            <td>75 vCPUs</td>
-            <td>3096 GB</td>
-            <td>200 GB</td>
-            <td>10.0.01.1</td>
-          </tr>
-          <tr className="servers-table-tr">
-            <td>
-              <label class="container">
-                <input type="checkbox" checked="checked" />
-              </label>
-            </td>
-            <td>354 GB</td>
-            <td>75 vCPUs</td>
-            <td>3096 GB</td>
-            <td>200 GB</td>
-            <td>10.0.01.1</td>
-          </tr>
-          <tr className="servers-table-tr">
-            <td>
-              <label class="container">
-                <input type="checkbox" checked="checked" />
-              </label>
-            </td>
-            <td>354 GB</td>
-            <td>75 vCPUs</td>
-            <td>3096 GB</td>
-            <td>200 GB</td>
-            <td>10.0.01.1</td>
-          </tr>
-          <tr className="servers-table-tr">
-            <td>
-              <label class="container">
-                <input type="checkbox" checked="checked" />
-              </label>
-            </td>
-            <td>354 GB</td>
-            <td>75 vCPUs</td>
-            <td>3096 GB</td>
-            <td>200 GB</td>
-            <td>10.0.01.1</td>
-          </tr>
+          {servers.map((server) => (
+            <tr key={server.id_vm} className="servers-table-tr">
+              <td>
+                <label className="container">
+                  <input type="checkbox" value={server.id_vm} />
+                </label>
+              </td>
+              <td>{server.hostname}</td>
+              <td>{server.configuracao.cpuProvisioned} vCPUs</td>
+              <td>{server.configuracao.memoryProvisioned} GB</td>
+              <td>{server.configuracao.totalDiskGB} GB</td>
+              <td>{server.ip}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </SectionsContainer>
