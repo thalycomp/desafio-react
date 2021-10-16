@@ -18,7 +18,7 @@
   border-radius: 0px 0px 9px 0px;
 }
 
-.vertical-flex-column {
+.vertical-table-tr {
   display: flex;
   flex-direction: column;
 }
