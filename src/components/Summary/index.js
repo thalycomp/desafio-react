@@ -5,6 +5,25 @@ import { useServers } from '../../hooks/useServers';
 function Summary() {
   const { selectedServers } = useServers();
 
+  const {
+    totalMemoryProvisioned,
+    totalCpuProvisioned,
+    totalDiskGB,
+  } = selectedServers.reduce(
+    (acc, server) => {
+      acc.totalCpuProvisioned += server.configuracao.cpuProvisioned;
+      acc.totalMemoryProvisioned += server.configuracao.memoryProvisioned;
+      acc.totalDiskGB += server.configuracao.totalDiskGB;
+
+      return acc;
+    },
+    {
+      totalMemoryProvisioned: 0,
+      totalCpuProvisioned: 0,
+      totalDiskGB: 0,
+    }
+  );
+
   return (
     <SectionsContainer title="Sumário dos recursos dos servidores">
       <table className="summary-table">
@@ -19,9 +38,9 @@ function Summary() {
         <tbody>
           <tr className="summary-table-tr">
             <td>{selectedServers.length} servidores selecionados</td>
-            <td>354 GB</td>
-            <td>75 vCPUs</td>
-            <td>3096 GB</td>
+            <td>{totalMemoryProvisioned} GB</td>
+            <td>{totalCpuProvisioned} vCPUs</td>
+            <td>{totalDiskGB} GB</td>
           </tr>
         </tbody>
       </table>
