@@ -1,7 +1,9 @@
 import './styles.css';
 import SectionsContainer from '../SectionsContainer';
-import { useServers } from '../../hooks/useServers';
 import HeadTable from '../HeadTable';
+
+import { theadTableServersStrings } from '../../constants/theadStrings';
+import { useServers } from '../../hooks/useServers';
 
 function ServersTable() {
   const { servers, addSelectedServers } = useServers();
@@ -10,19 +12,10 @@ function ServersTable() {
     addSelectedServers(server);
   };
 
-  const valuesHeadServers = [
-    { title: 'Select', key: 0 },
-    { title: 'Hostname', key: 1 },
-    { title: 'Memória', key: 2 },
-    { title: 'vCPUs', key: 3 },
-    { title: 'Disco', key: 4 },
-    { title: 'IP', key: 5 },
-  ];
-
   return (
     <SectionsContainer title="Tabela de servidores">
       <table className="servers-table">
-        <HeadTable type="horizontal" valuesHead={valuesHeadServers} />
+        <HeadTable type="horizontal" valuesHead={theadTableServersStrings} />
         <tbody>
           {servers.map((server) => (
             <tr key={server.id_vm} className="servers-table-tr">
