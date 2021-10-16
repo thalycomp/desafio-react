@@ -18,24 +18,9 @@
   flex-direction: column;
 }
 
-.summary-table-tr th,
 .summary-table-tr td {
   padding: 0.6rem;
-  border: 1px solid #dddddd;
-}
-
-.summary-table-tr th {
-  background-color: #e5e5e5;
-
-  font-weight: normal;
-}
-
-.summary-table-tr th:first-child {
-  border-radius: 9px 0px 0px 0px;
-}
-
-.summary-table-tr th:last-child {
-  border-radius: 0px 0px 0px 9px;
+  border: 1px solid #e1e1e1;
 }
 
 .summary-table-tr td:first-child {
