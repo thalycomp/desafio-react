@@ -16,3 +16,8 @@
   border: 1px solid #dddddd;
   margin: 0;
 }
+
+.no-server td {
+  text-align: center;
+  padding-top: 1rem;
+}

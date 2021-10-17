@@ -1,6 +1,6 @@
 .navbar-react {
   background-color: #007acc;
-  padding: 0;
+  padding: 0.5rem;
   display: grid;
   color: #fff;
   grid-template-columns: 4vw 65vw 22vw 9vw;

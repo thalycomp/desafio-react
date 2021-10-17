@@ -8,7 +8,17 @@ export function ServerProvider({ children }) {
   const [selectedServers, setSelectedServers] = useState([]);
 
   useEffect(() => {
-    api.get('/servers').then((response) => setServers(response.data));
+    async function fetchServers() {
+      const { data } = await api.get('/servers');
+
+      [data].sort(function (a, b) {
+        return a.hostname < b.hostname ? -1 : a.hostname > b.hostname ? 1 : 0;
+      });
+
+      setServers(data);
+    }
+
+    fetchServers();
   }, []);
 
   function addSelectedServers(server) {
